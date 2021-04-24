@@ -1,12 +1,24 @@
 <div class="product-list">
-    <div class="product-tile" *ngFor="let product of products">
+    <div class="product-title">
         <h3>{{ product.name }}</h3>
-        <img [src]="product.imageUrl" [alt]="product.name">
+        <img [src]="product.imageUrl">
 
-        <button (click)="buyFruit($event.target)">BUY</button>
+        <input class="input-field" type="number" min="0" matInput [(ngModel)]="desired_amount">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+
+        <div class="button-group">
+            <button class="button" (click)="buyFruit()">BUY</button>
+            <button class="button" (click)="reset()">RESET</button>
+        </div>
     </div>
 
     <div class="console-logs">
-        <h3 *ngFor="let log of logs">{{ log }}</h3>
+        <h3> ProductListComponent </h3>
+        <h4 *ngFor="let log of logs">{{ log }}</h4>
+    </div>
+
+    <div class="console-logs">
+        <h3> BoughtProductComponent </h3>
+        <app-bought-product [bought_amount]=amount_to_show [bought_product]=product_data> </app-bought-product>
     </div>
 </div>

@@ -8,8 +8,7 @@ import { Product } from '../types';
   styleUrls: ['./product-list.component.scss']
 })
 
-export class ProductListComponent implements OnChanges, 
-                                              OnInit, 
+export class ProductListComponent implements OnInit, 
                                               DoCheck, 
                                               AfterContentInit, 
                                               AfterContentChecked,
@@ -17,17 +16,15 @@ export class ProductListComponent implements OnChanges,
                                               AfterViewChecked,
                                               OnDestroy {
 
-  products: Product[];
+  product: Product;
   logs: string[];
+  desired_amount: number = 0;
+  amount_to_show: number = 0;
+  product_data: string = 'Apple';
 
   constructor(private productService: ProductService) {
-    this.products = [];
-    this.products = this.products.concat(this.productService.getProducts()[1]);
+    this.product = this.productService.getProducts()[1];
     this.logs = [];
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    this.logs.push('OnChanges');
   }
 
   ngOnInit(): void {
@@ -58,9 +55,23 @@ export class ProductListComponent implements OnChanges,
     this.logs.push('OnDestroy');
   }
 
-  buyFruit(element: any) {
-    element.textContent = `Bought!`;
-    element.disabled = true;
+  buyFruit() {
+    this.amount_to_show = this.desired_amount;
+    this.handleFruitName();
+  }
+
+  reset() {
+    this.desired_amount = 0;
+    this.amount_to_show = 0;
+    this.handleFruitName();
+  }
+
+  handleFruitName() {
+    if (this.amount_to_show != 0) {
+      this.product_data = this.product.name + '(s)';
+    } else {
+      this.product_data = this.product.name;
+    }
   }
 
 }
