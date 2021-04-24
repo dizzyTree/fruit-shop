@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../types';
 
@@ -13,14 +13,14 @@ export class ProductListComponent implements OnInit,
                                               AfterContentInit, 
                                               AfterContentChecked,
                                               AfterViewInit,
-                                              AfterViewChecked,
-                                              OnDestroy {
+                                              AfterViewChecked {
 
   product: Product;
   logs: string[];
   desired_amount: number = 0;
   amount_to_show: number = 0;
   product_data: string = 'Apple';
+  showChild = false;
 
   constructor(private productService: ProductService) {
     this.product = this.productService.getProducts()[1];
@@ -51,12 +51,9 @@ export class ProductListComponent implements OnInit,
     this.logs.push('AfterViewChecked');
   }
 
-  ngOnDestroy(): void {
-    this.logs.push('OnDestroy');
-  }
-
   buyFruit() {
     this.amount_to_show = this.desired_amount;
+    this.showChild = true;
     this.handleFruitName();
   }
 
@@ -64,6 +61,11 @@ export class ProductListComponent implements OnInit,
     this.desired_amount = 0;
     this.amount_to_show = 0;
     this.handleFruitName();
+    this.showChild = false;
+  }
+
+  listenToMessage(message: string) {
+    this.logs.push(message);
   }
 
   handleFruitName() {

@@ -17,8 +17,11 @@
         <h4 *ngFor="let log of logs">{{ log }}</h4>
     </div>
 
-    <div class="console-logs">
+    <div *ngIf="showChild" class="console-logs">
         <h3> BoughtProductComponent </h3>
-        <app-bought-product [bought_amount]=amount_to_show [bought_product]=product_data> </app-bought-product>
+        <app-bought-product 
+            [bought_amount]=amount_to_show 
+            [bought_product]=product_data
+            (message)="listenToMessage($event)"> </app-bought-product>
     </div>
 </div>

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../types';
 
@@ -9,10 +9,13 @@ import { Product } from '../types';
 })
 
 export class BoughtProductComponent implements OnInit,
-                                                OnChanges {
+                                                OnChanges,
+                                                OnDestroy {
 
   @Input() bought_amount: number;
   @Input() bought_product: string;
+  @Output() message = new EventEmitter<string>();
+
   logs: string[];
   product: Product;
   
@@ -29,6 +32,10 @@ export class BoughtProductComponent implements OnInit,
 
   ngOnInit(): void {
     this.logs.push('OnInit'); 
+  }
+
+  ngOnDestroy(): void {
+    this.message.emit('destroing child component ...');
   }
 
 }
