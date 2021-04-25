@@ -3,22 +3,22 @@
         <h3>{{ product.name }}</h3>
         <img [src]="product.imageUrl">
 
-        <input class="input-field" type="number" min="0" matInput [(ngModel)]="desired_amount">
+        <input class="input-field" type="number" matInput [(ngModel)]="desired_amount">
         <mat-icon matSuffix>mode_edit</mat-icon>
 
         <div class="button-group">
-            <button class="button" (click)="buyFruit()">BUY</button>
-            <button class="button" (click)="reset()">RESET</button>
+            <button class="button" [disabled]="isDisabled()" (click)="buyFruit()">BUY</button>
+            <button class="button" [disabled]="isDisabled()" (click)="reset()">RESET</button>
         </div>
     </div>
 
     <div class="console-logs">
-        <h3> ProductListComponent </h3>
+        <h3 class="title"> ProductListComponent </h3>
         <h4 *ngFor="let log of logs">{{ log }}</h4>
     </div>
 
     <div *ngIf="showChild" class="console-logs">
-        <h3> BoughtProductComponent </h3>
+        <h3 class="title"> BoughtProductComponent </h3>
         <app-bought-product 
             [bought_amount]=amount_to_show 
             [bought_product]=product_data

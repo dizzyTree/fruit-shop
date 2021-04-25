@@ -18,6 +18,8 @@ export class BoughtProductComponent implements OnInit,
 
   logs: string[];
   product: Product;
+
+  id: number = 0;
   
   constructor(private productService: ProductService) {
     this.bought_amount = 0;
@@ -27,11 +29,13 @@ export class BoughtProductComponent implements OnInit,
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.logs.push('OnChanges');
+    this.id++;
+    this.logs.push(`#${this.id} OnChanges`);
   }
 
   ngOnInit(): void {
-    this.logs.push('OnInit'); 
+    this.id++;
+    this.logs.push(`#${this.id} OnInit`); 
   }
 
   ngOnDestroy(): void {

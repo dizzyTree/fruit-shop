@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, ElementRef, HostListener, OnInit } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../types';
 
@@ -17,38 +17,49 @@ export class ProductListComponent implements OnInit,
 
   product: Product;
   logs: string[];
+
   desired_amount: number = 0;
   amount_to_show: number = 0;
-  product_data: string = 'Apple';
-  showChild = false;
+  id: number = 0;
 
-  constructor(private productService: ProductService) {
+  product_data: string = 'Apple';
+  regexStr: string = '^[1-9][0-9]*$';
+
+  showChild = false;
+ 
+  constructor(private productService: ProductService, private el: ElementRef) {
     this.product = this.productService.getProducts()[1];
     this.logs = [];
   }
 
   ngOnInit(): void {
-    this.logs.push('OnInit'); 
+    this.id++;
+    this.logs.push(`#${this.id} OnInit`); 
   }
 
   ngDoCheck(): void {
-    this.logs.push('DoCheck'); 
+    this.id++;
+    this.logs.push(`#${this.id} DoCheck`); 
   }
 
   ngAfterContentInit(): void {
-    this.logs.push('AfterContentInit');
+    this.id++;
+    this.logs.push(`#${this.id} AfterContentInit`);
   }
 
   ngAfterContentChecked(): void {
-    this.logs.push('AfterContentChecked');
+    this.id++;
+    this.logs.push(`#${this.id} AfterContentChecked`);
   }
 
   ngAfterViewInit(): void {
-    this.logs.push('AfterViewInit');
+    this.id++;
+    this.logs.push(`#${this.id} AfterViewInit`);
   }
 
   ngAfterViewChecked(): void {
-    this.logs.push('AfterViewChecked');
+    this.id++;
+    this.logs.push(`#${this.id} AfterViewChecked`);
   }
 
   buyFruit() {
@@ -74,6 +85,14 @@ export class ProductListComponent implements OnInit,
     } else {
       this.product_data = this.product.name;
     }
+  }
+
+  isDisabled(): boolean {
+    return this.desired_amount === 0;
+  }
+
+  @HostListener('keypress', ['$event']) onKeyPress(event: any) {
+    return new RegExp(this.regexStr).test(event.key);
   }
 
 }
