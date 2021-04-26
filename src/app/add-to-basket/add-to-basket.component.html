@@ -1,0 +1,4 @@
+<button [disabled]="quantity === 1" (click)="decreaseQuantity()">-</button>
+<input type="number" [(ngModel)]="quantity" disabled>
+<button (click)="increaseQuantity()" class="margin-right">+</button>
+<button (click)="addToBasket()">Add to basket</button>

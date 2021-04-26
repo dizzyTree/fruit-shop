@@ -1,9 +1,10 @@
 <div class="product-list">
     <div class="product-tile" *ngFor="let product of products">
-        <div class="clickable-area" [routerLink]="['/products', product.id]">
+        <!-- TODO add routerLink -->
+        <div class="clickable-area">
             <img [src]="product.imageUrl" [alt]="product.name">
             <h3>{{ product.name }}</h3>
         </div>
-        <button>buy</button>
+        <!-- TODO add AddToBasket -->
     </div>
 </div>

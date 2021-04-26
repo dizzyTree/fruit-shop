@@ -1,0 +1,14 @@
+<h3>Basket</h3>
+<p *ngIf="!basketItems.length">You basket is empty.</p>
+<div *ngFor="let item of basketItems">
+    <div class="item-line">
+        <span>{{ item.product.name }}</span>
+        <span>{{ item.quantity }}</span>
+        <!-- TODO calculate line price -->
+    </div>
+</div>
+<div *ngIf="basketItems.length" class="item-line price-area">
+    <span>Total</span>
+    <!-- TODO calculate total price -->
+    <span>{{ calculateTotalQuantity() }}</span>
+</div>

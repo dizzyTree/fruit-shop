@@ -22,6 +22,7 @@ export class ProductService {
                 name: "Peach",
                 imageUrl: "assets/img/peach.png"
             }
+            // TODO add a banana
         ];
     }
 
