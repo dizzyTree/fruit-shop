@@ -7,9 +7,14 @@
         text-align: center;
         height: 300px;
         width: 300px;
-        border: 1px gray solid;
+        border: 1px #ddd solid;
         margin: 20px;
         padding: 20px;
+
+        .clickable-area {
+            cursor: pointer;
+            outline: none;
+        }
 
         img {
             height: 200px;
