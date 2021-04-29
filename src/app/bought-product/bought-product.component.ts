@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
 import { ProductService } from '../services/product.service';
 import { Product } from '../types';
 
@@ -28,7 +28,7 @@ export class BoughtProductComponent implements OnInit,
     this.product = this.productService.getProducts()[1];
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     this.id++;
     this.logs.push(`#${this.id} OnChanges`);
   }
