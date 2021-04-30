@@ -2,5 +2,9 @@ export interface Product {
     id: number;
     name: string;
     imageUrl: string;
-    // TODO add properties description and price
+
+    // Task 1.1: start
+    description: string;
+    price: number;
+    // Task 1.2: end
 }

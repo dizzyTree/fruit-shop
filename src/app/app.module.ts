@@ -7,13 +7,15 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { AddToBasketComponent } from './add-to-basket/add-to-basket.component';
 import { FormsModule } from '@angular/forms';
 import { BasketComponent } from './basket/basket.component';
+import { ProductDetailPageComponent } from './product-detail-page/product-detail-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductListComponent,
     AddToBasketComponent,
-    BasketComponent
+    BasketComponent,
+    ProductDetailPageComponent
   ],
   imports: [
     BrowserModule,
