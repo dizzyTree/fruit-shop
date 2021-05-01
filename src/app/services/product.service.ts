@@ -39,7 +39,7 @@ export class ProductService {
                 description: "89 calories per 100 g",
                 price: 4
             }
-            //Task 1: end
+            //Task 1.3: end
         ];
     }
 

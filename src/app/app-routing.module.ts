@@ -6,9 +6,9 @@ import { ProductListComponent } from './product-list/product-list.component';
 const routes: Routes = [
   { path: "",  component: ProductListComponent, pathMatch: "full" },
   { path: "products", component: ProductListComponent },
-  // TODO add route to ProductDetailPage with id parameter
-  { path: "product/:id", component: ProductDetailPageComponent},
- // { path: '**', component: PageNotFoundComponent },
+  // Task 4.2: start
+  { path: "product/:id", component: ProductDetailPageComponent}
+  // Task 4.2: end
 ];
 
 @NgModule({

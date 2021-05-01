@@ -26,6 +26,7 @@ export class BasketComponent implements OnInit {
     return sum;
   }
 
+  // Task 5.3: start
   calculateTotalPrice(): number {
     let sum = 0;
     for (let item of this.basketItems) {
@@ -33,5 +34,6 @@ export class BasketComponent implements OnInit {
     }
     return sum;
   }
+  // Task 5.3: end
 
 }
