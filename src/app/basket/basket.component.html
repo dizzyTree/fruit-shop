@@ -4,11 +4,16 @@
     <div class="item-line">
         <span>{{ item.product.name }}</span>
         <span>{{ item.quantity }}</span>
-        <!-- TODO calculate line price -->
     </div>
 </div>
-<div *ngIf="basketItems.length" class="item-line price-area">
-    <span>Total</span>
-    <!-- TODO calculate total price -->
-    <span>{{ calculateTotalQuantity() }}</span>
+<div *ngIf="basketItems.length" class="price-area">
+    <div class="item-line">
+        <span>Total</span>
+        <span>{{ calculateTotalQuantity() }}</span>
+    </div>
+    
+    <!-- Task 5.4: start -->
+
+    
+    <!-- Task 5.4: end -->
 </div>
