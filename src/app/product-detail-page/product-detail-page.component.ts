@@ -20,8 +20,8 @@ export class ProductDetailPageComponent implements OnInit {
               private route: ActivatedRoute) {            
     this.routeSub = this.route.params.subscribe(params => {
       this.id = parseInt(params['id']);
+      this.product = this.productService.getProduct(this.id);
     });
-    this.product = this.productService.getProduct(this.id);
   }
 
   ngOnInit(): void {
