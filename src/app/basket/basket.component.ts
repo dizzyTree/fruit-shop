@@ -30,7 +30,7 @@ export class BasketComponent implements OnInit {
   calculateTotalPrice(): number {
     let sum = 0;
     for (let item of this.basketItems) {
-      sum += item.product.price;
+      sum += item.product.price * item.quantity;
     }
     return sum;
   }
