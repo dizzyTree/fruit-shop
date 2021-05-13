@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { Observable, of } from "rxjs";
 import { Product } from "../types";
 
 @Injectable({
@@ -43,7 +44,8 @@ export class ProductService {
         ];
     }
 
-    getProduct(id: number): any {
-        return this.getProducts().find(p => p.id === id);
+    getProduct(id: number): Observable<Product> {
+        const product = this.getProducts().find(p => p.id === id) as Product;
+        return of(product);
     }
 }
