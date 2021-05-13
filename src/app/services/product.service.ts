@@ -23,11 +23,10 @@ export class ProductService {
                 id: 3,
                 name: "Peach",
                 imageUrl: "assets/img/peach.png"
-            },
+            }
             //Task 1.2: end
-            
             //Task 1.3: start
-           
+            
             //Task 1.3: end
         ];
     }
