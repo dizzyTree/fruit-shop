@@ -11,8 +11,6 @@ import { Product } from '../types';
 })
 export class ProductDetailPageComponent implements OnInit {
 
-  private routeSub!: Subscription;
-
   id: number = 0;
   product!: Product;
 
