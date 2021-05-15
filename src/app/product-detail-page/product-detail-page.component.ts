@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
 import { ProductService } from '../services/product.service';
 import { Product } from '../types';
 
@@ -10,15 +9,12 @@ import { Product } from '../types';
   styleUrls: ['./product-detail-page.component.scss']
 })
 export class ProductDetailPageComponent implements OnInit {
-
-  id: number = 0;
   product!: Product;
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute) {     
     const id = Number(this.route.snapshot.paramMap.get('id'));
-    this.productService.getProduct(id)
-      .subscribe(product => this.product = product);
+    this.product = this.productService.getProduct(id);
   }
 
   ngOnInit(): void {
