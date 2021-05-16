@@ -8,26 +8,34 @@ export class ProductService {
     
     getProducts(): Product[] {
         return [
-            // Task 1.2: start
-            {
+             // Task 1.2: start
+             {
                 id: 1,
                 name: "Pear",
-                imageUrl: "assets/img/pear.png"
+                imageUrl: "assets/img/pear.png",
+
             },
             {
                 id: 2,
                 name: "Apple",
-                imageUrl: "assets/img/apple.png"
+                imageUrl: "assets/img/apple.png",
+
+
             },
             {
                 id: 3,
                 name: "Peach",
-                imageUrl: "assets/img/peach.png"
-            }
+                imageUrl: "assets/img/peach.png",
+
+
+            },
             //Task 1.2: end
-            //Task 1.3: start
+
             
+            //Task 1.3: start
+
             //Task 1.3: end
+
         ];
     }
 

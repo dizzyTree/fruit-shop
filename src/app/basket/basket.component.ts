@@ -26,8 +26,4 @@ export class BasketComponent implements OnInit {
     return sum;
   }
 
-  // Task 5.3: start
-  
-  // Task 5.3: end
-
 }
