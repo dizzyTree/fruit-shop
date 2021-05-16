@@ -25,15 +25,4 @@ export class BasketComponent implements OnInit {
     }
     return sum;
   }
-
-  // Task 5.3: start
-  calculateTotalPrice(): number {
-    let sum = 0;
-    for (let item of this.basketItems) {
-      sum += item.product.price * item.quantity;
-    }
-    return sum;
-  }
-  // Task 5.3: end
-
 }
